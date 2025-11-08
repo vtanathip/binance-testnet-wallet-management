@@ -51,7 +51,29 @@ BINANCE_TESTNET=true
 BINANCE_SANDBOX=true
 ```
 
-3. Get your API keys from [Binance Testnet](https://testnet.binance.vision/)
+3. **(Optional)** Configure deposit test settings in `.env`:
+```env
+# Deposit Test Configuration (Optional)
+# NOTE: Deposit endpoints are not available in testnet (SAPI limitation)
+TEST_DEPOSIT_COINS=BTC,ETH,USDT,BNB               # Coins to test
+TEST_DEPOSIT_NETWORKS=None,None,ERC20|TRC20,BEP20 # Networks (use | for multiple)
+TEST_DEPOSIT_HISTORY_COIN=USDT                    # Coin for history check
+TEST_DEPOSIT_HISTORY_LIMIT=10                     # Max history records
+TEST_DEPOSIT_CONSISTENCY_COIN=BTC                 # Coin for consistency test
+```
+   **Note:** Deposit tests will be skipped in testnet mode due to SAPI endpoint limitations.
+
+4. **(Optional)** Configure transfer test settings in `.env`:
+```env
+# Transfer Test Configuration (Optional)
+TEST_TRANSFER_COIN=USDT              # Coin to transfer
+TEST_TRANSFER_NETWORK=BSC            # Network (BSC, ERC20, TRC20, etc.)
+TEST_TRANSFER_AMOUNT=1.0             # Amount to transfer
+TEST_TRANSFER_ADDRESS=0xYourAddress  # Destination address
+```
+   **Note:** The transfer test will be skipped if `TEST_TRANSFER_ADDRESS` is not configured.
+
+5. Get your API keys from [Binance Testnet](https://testnet.binance.vision/)
 
 ## Usage
 

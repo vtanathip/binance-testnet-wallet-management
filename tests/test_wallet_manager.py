@@ -13,7 +13,7 @@ def test_wallet_manager_initialization_without_config():
     # Clear environment variables
     old_key = os.environ.pop('BINANCE_API_KEY', None)
     old_secret = os.environ.pop('BINANCE_API_SECRET', None)
-    
+
     try:
         with pytest.raises(ValueError, match="Invalid configuration"):
             manager = BinanceWalletManager()
@@ -30,7 +30,7 @@ def test_wallet_manager_initialization_with_config():
     # Set test environment variables
     os.environ['BINANCE_API_KEY'] = 'test_key'
     os.environ['BINANCE_API_SECRET'] = 'test_secret'
-    
+
     try:
         config = Config()
         manager = BinanceWalletManager(config)
@@ -47,18 +47,18 @@ def test_wallet_manager_methods_exist():
     """Test that all expected methods exist on WalletManager."""
     os.environ['BINANCE_API_KEY'] = 'test_key'
     os.environ['BINANCE_API_SECRET'] = 'test_secret'
-    
+
     try:
         config = Config()
         manager = BinanceWalletManager(config)
-        
+
         # Check that all expected methods exist
         assert hasattr(manager, 'get_balance')
         assert hasattr(manager, 'withdraw')
         assert hasattr(manager, 'get_deposit_address')
         assert hasattr(manager, 'get_deposit_history')
         assert hasattr(manager, 'get_withdrawal_history')
-        
+
         # Check that methods are callable
         assert callable(manager.get_balance)
         assert callable(manager.withdraw)
