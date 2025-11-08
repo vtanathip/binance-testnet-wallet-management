@@ -1,0 +1,14 @@
+[project]
+name = "binance-wallet-manager"
+version = "0.1.0"
+description = "A repository for managing Binance testnet wallet operations including withdraw and deposit functionality"
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+    "ccxt>=4.5.17",
+    "python-dotenv>=1.2.1",
+]
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
